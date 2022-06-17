@@ -1,0 +1,1 @@
+let idPost = window.location.search.substring(9);

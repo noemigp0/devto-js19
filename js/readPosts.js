@@ -1,8 +1,8 @@
 let post = [
   {
     title: "Why Every Programmers Must Blog",
-    content: `When people hear the term Programmers, they think of people who write code, add new features, or perhaps iron out existing bugs in a project
-     But a small subsection of this population put out content such as Blogs or YouTube videos. You might be wondering:
+    content: `<p>When people hear the term <strong>Programmers</strong>, they think of people who write code, add new features, or perhaps iron out existing bugs in a project</p>
+     <p>But a small subsection of this population put out content such as Blogs or YouTube videos. You might be wondering:</p>
      This article will answer this question and provide you some of the benefits of putting out content, mainly focusing on blogging, and how it can help you level up.
      When you start putting out content two of the earliest fears that will paralyze you are not being an expert and not being a good communicator.
      Even if those fears are true, the only antidote to them is to action. Yes, your first blogs might not be great, but over time you will learn to communicate better and that will not only help you in your profession but in your personal life too.
@@ -23,6 +23,9 @@ let post = [
     author: "Tapajyoti Bose",
     createdDate: "2022-03-26",
     mintoread: 3,
+    reactions: 121,
+    comments: 14,
+    reference: "/must-blog-post.html",
     avatarAuthor:
       "https://res.cloudinary.com/practicaldev/image/fetch/s--MwFotuf_--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/530414/941751d8-06b8-41bd-9de9-6ea056b7199f.png",
   },
@@ -69,6 +72,9 @@ let post = [
     author: "Debbie O'Brien",
     createdDate: "2022-03-27",
     mintoread: 11,
+    reactions: 134,
+    comments: 18,
+    reference: "/imposter-post.html",
     avatarAuthor:
       "https://res.cloudinary.com/practicaldev/image/fetch/s--1RliSohf--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/212929/a8f974f4-40e6-48df-9b84-debd1a207e38.jpeg",
   },
@@ -138,7 +144,7 @@ const listPosts = (objPost) => {
       </div> 
 
       <div class="CardBody">
-        <div class="ArticleName"><a class="LinkArticle" href="blog.html">${
+        <div class="ArticleName"><a class="LinkArticle" href="${postElements.reference}?postKey=${post}">${
           postElements.title
         }</a></div>        
        <div class="Hashtags">
@@ -147,9 +153,9 @@ const listPosts = (objPost) => {
     </div>
     
      <div class="CardFoot">
-       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Heart.png" />43
+       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Heart.png" />${postElements.reactions}
          reactions</button>
-       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Gb.png" />11
+       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Gb.png" />${postElements.comments}
          comments</button>
        <div class="Spacer"></div>
        <div class="FS12 FGray p-1">${postElements.mintoread} min read</div>
