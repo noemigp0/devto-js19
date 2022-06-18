@@ -144,9 +144,9 @@ const listPosts = (objPost) => {
       </div> 
 
       <div class="CardBody">
-        <div class="ArticleName"><a class="LinkArticle" href="${postElements.reference}?postKey=${post}">${
-          postElements.title
-        }</a></div>        
+        <div class="ArticleName"><a class="LinkArticle" href="./post.html?postKey=${post}">
+          ${postElements.title}
+        </a></div>        
        <div class="Hashtags">
          ${paintTags(tags)}
        </div>
