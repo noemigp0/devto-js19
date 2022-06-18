@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Set de caracteres  -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/styles.css">
+        
+    </head>
+    <body>
+        <main class="main">
+ 
+            <div class="container">
+                <div class="card shadow rounded mt-5 mb-5 p-5 form__newkoder">
+                    <h1 class="text-center mb-5 ">Editar post</h1>
+                    
+                    <form action="#">
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="usuario" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" id="usuario" placeholder="Jonh">
+                            </div>
+                            <div class="mb-3">
+                                <label for="imagen" class="form-label">Imagen</label>
+                                <input type="text" class="form-control" id="imagen" placeholder="20">
+                            </div>
+                            <div class="mb-3">
+                                <label for="titulo" class="form-label">Titulo</label>
+                                <input type="text" class="form-control" id="titulo" placeholder="JavaScript">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="etiqueta" class="form-label">Etiqueta</label>
+                                <textarea class="form-control" id="etiqueta" rows="3" placeholder="En algun lugar de la mancha..."></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contenido" class="form-label">Contenido</label>
+                                <textarea class="form-control" id="contenido" rows="3" placeholder="Escreibe el contenido de tu post"></textarea>
+                            </div>
+                            
+    
+                            <div class="col-12 text-end">
+                                <button type="button" class="btn btn-primary btn-lg" id="updatePost">Editar</button>
+                                <button type="button" class="btn btn-danger btn-lg" id="deletePost">Eliminar</button>
+                            </div>
+                        </div>
+                        
+                    </form>                                
+                </div>
+                
+            </div>
+        </main>
+        <!-- Referencia  de ayuda -->
+        <!-- https://getbootstrap.com/docs/5.2/forms/form-control/#content -->
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="/js/commons.js"></script>
+        <script src="/js/edit-post.js"></script>
+        
+    </body>
+</html>
