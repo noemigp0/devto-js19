@@ -45,7 +45,7 @@ body{
     text-decoration: underline;
 }
 
-#CreateANB{
+#CreatePost{
     border: 1px solid #3b49df;
     border-radius: 8px;
     font-size: 18px;
@@ -54,7 +54,7 @@ body{
 }
 
 @media (min-width: 570px){
-    #CreateANB{
+    #CreatePost{
         border: 1px solid #3b49df;
         border-radius: 8px;
         font-size: 18px;
@@ -63,7 +63,7 @@ body{
     }
 }
 
-#CreateANB:hover{
+#CreatePost:hover{
     background-color:#3b49df ;
     color: #ffffff;
     text-decoration: underline;
