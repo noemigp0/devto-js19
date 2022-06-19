@@ -136,7 +136,7 @@ const listPosts = (objPost) => {
     <div class="card">
 
       <div class="CardHead">
-        <div><img class="ImgTmb" src="${postElements.avatarAuthor}" /></div>
+        <div><img class="ImgTmb" src="${postElements.urlCoverImage}" /></div> 
           <div class="CardTitleHead">
             <div class="Name">${postElements.author}</div>
             <div class="FS12 FGray">${postElements.createdDate}</div>
@@ -144,9 +144,9 @@ const listPosts = (objPost) => {
       </div> 
 
       <div class="CardBody">
-        <div class="ArticleName"><a class="LinkArticle" href="${postElements.reference}?postKey=${post}">${
-          postElements.title
-        }</a></div>        
+        <div class="ArticleName"><a class="LinkArticle" href="./post.html?postKey=${post}">
+          ${postElements.title}
+        </a></div>        
        <div class="Hashtags">
          ${paintTags(tags)}
        </div>
