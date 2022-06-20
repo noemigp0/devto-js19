@@ -1,0 +1,43 @@
+*{
+    font-family: "Roboto", sans-serif;
+}
+
+.navbar{
+    background-color: #ffffff;
+    position:fixed;
+    width:100%;
+    z-index: 1000000;
+    top:0;
+}
+
+
+#LogoNB{
+    width: 50px;
+    margin-left: 140px;
+}
+
+.FBold{
+    font-weight: bold;
+}
+
+#close{
+    border: none;
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+#close:hover{
+    background-color: #ebecfc;
+    color: #3b49df;
+   
+}
+
+.FGray{
+    color: #525252;
+}
+
+.label{
+    padding: 15px;
+}
+
+
