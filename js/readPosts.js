@@ -136,7 +136,7 @@ const listPosts = (objPost) => {
     <div class="card">
 
       <div class="CardHead">
-        <div><img class="ImgTmb" src="${postElements.urlCoverImage}" /></div> 
+        <div><img class="ImgTmb" src="${postElements.avatarAuthor}" /></div> 
           <div class="CardTitleHead">
             <div class="Name">${postElements.author}</div>
             <div class="FS12 FGray">${postElements.createdDate}</div>
@@ -153,9 +153,13 @@ const listPosts = (objPost) => {
     </div>
     
      <div class="CardFoot">
-       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Heart.png" />${postElements.reactions}
+       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Heart.png" />${
+         postElements.reactions
+       }
          reactions</button>
-       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Gb.png" />${postElements.comments}
+       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Gb.png" />${
+         postElements.comments
+       }
          comments</button>
        <div class="Spacer"></div>
        <div class="FS12 FGray p-1">${postElements.mintoread} min read</div>
