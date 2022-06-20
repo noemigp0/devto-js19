@@ -15,17 +15,25 @@ console.log("hola");
    })
    .then((response) => {
      console.log(response);
-     let template = "";
+     let templateCI = "";     
      //let { author, age, biography, bootcamp } = response;
      // pintar esa informacion en el formulario
      if (response) {
          console.log(response)
-       let { title, author, content, tags, urlCoverImage } = response;
+       let { title, author, content, tags, urlCoverImage, avatarAuthor } = response;
        // pintar esa informacion en el formulario   
   
        document.getElementById("authorPost").innerHTML  = author;
        document.getElementById("titlePost").innerHTML = title;
-       document.getElementById("content").innerHTML  = content;
+       document.getElementById("content").innerHTML = content;
+
+       templateCI = `<img src="${urlCoverImage}" alt="No picture found" />`
+       document.getElementById("cover-image").innerHTML = templateCI;
+       templateCI = `<img src="${avatarAuthor}" alt="No picture found" />`;
+       document.getElementById("avatar-image").innerHTML = templateCI;
+       document.getElementById("avatar-image-sb").innerHTML = templateCI;
+       document.getElementById("authorPostSB").innerHTML = author;
+       document.getElementById("more-from").innerHTML = author;
 
     
     
