@@ -26,6 +26,7 @@ console.log("hola");
        document.getElementById("authorPost").innerHTML  = author;
        document.getElementById("titlePost").innerHTML = title;
        document.getElementById("content").innerHTML  = content;
+
     
     
    

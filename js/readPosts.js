@@ -136,7 +136,7 @@ const listPosts = (objPost) => {
     <div class="card">
 
       <div class="CardHead">
-        <div><img class="ImgTmb" src="${postElements.avatarAuthor}" /></div>
+        <div><img class="ImgTmb" src="${postElements.urlCoverImage}" /></div> 
           <div class="CardTitleHead">
             <div class="Name">${postElements.author}</div>
             <div class="FS12 FGray">${postElements.createdDate}</div>
