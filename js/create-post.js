@@ -31,7 +31,7 @@ btnEnviar.addEventListener('click', () => {
             reactions: 999,
             comments: 500,
             reference: "link",
-            avatarAuthor: "url",
+            avatarAuthor: "https://i.pravatar.cc/150?img=" + parserInt(Math.random()),
         
     }
     console.log(newPost)

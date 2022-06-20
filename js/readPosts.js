@@ -120,14 +120,36 @@ const paintTags = (tagsArray) => {
 }
 
 const listPosts = (objPost) => {
+
+  console.log( "aquí " + typeof objPost )
   let postCardTemplate = "";
   let i = 0;
+  let arrList = []
+  let flagFirstTime = 0
+
+  /*
+  for (post in objPost) {
+
+    console.log( )
+
+  }*/
+
+  arrList = Object.entries( objPost )
+  
+  arrReverse = arrList.reverse()
+  console.log( "arrList " + arrList)
+  console.log( "arrReverse " + arrReverse)
+
+  console.log("ele " +  arrList[0], arrList[0][1].author )
+
+  //for (post in objPost) {
 
   
-
-  for (post in objPost) {
-    let postElements = objPost[post];  
+  for ( i = 0; i < arrList.length; i++ ){
+    let postElements = arrList[i][1] // objPost[post];  
     
+    console.log(postElements)
+
     let tags = postElements.tags.split(",")
    console.log(paintTags(tags))
     
@@ -136,7 +158,7 @@ const listPosts = (objPost) => {
     <div class="card">
 
       <div class="CardHead">
-        <div><img class="ImgTmb" src="${postElements.avatarAuthor}" /></div>
+        <div><img class="ImgTmb" src="${postElements.avatarAuthor === 'url'?'https://i.pravatar.cc/150?img='+ parseInt(Math.random()*10): postElements.avatarAuthor }" /></div>
           <div class="CardTitleHead">
             <div class="Name">${postElements.author}</div>
             <div class="FS12 FGray">${postElements.createdDate}</div>
@@ -144,7 +166,7 @@ const listPosts = (objPost) => {
       </div> 
 
       <div class="CardBody">
-        <div class="ArticleName"><a class="LinkArticle" href="./post.html?postKey=${post}">
+        <div class="ArticleName"><a class="LinkArticle" href="./post.html?postKey=${arrList[i][0]}">
           ${postElements.title}
         </a></div>        
        <div class="Hashtags">
@@ -153,12 +175,12 @@ const listPosts = (objPost) => {
     </div>
     
      <div class="CardFoot">
-       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Heart.png" />${postElements.reactions}
+       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Heart.png" />${postElements.reactions + parseInt(Math.random()*1000)}
          reactions</button>
-       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Gb.png" />${postElements.comments}
+       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Gb.png" />${postElements.comments + parseInt(Math.random()*1000) }
          comments</button>
        <div class="Spacer"></div>
-       <div class="FS12 FGray p-1">${postElements.mintoread} min read</div>
+       <div class="FS12 FGray p-1">${postElements.mintoread + parseInt(Math.random()*100)} min read</div>
        <button type="button" class="btn btn-sm Save">Save</button>
      </div>
 
