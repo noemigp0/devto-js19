@@ -18,14 +18,15 @@ fetch(urlUpd)
     //let { author, age, biography, bootcamp } = response;
     // pintar esa informacion en el formulario
     if (response) {
-      let { title, author, content, tags, urlCoverImage } = response;
+      let { title, author, content, tags, urlCoverImage, avatarAuthor } = response;
       // pintar esa informacion en el formulario   
 
       document.getElementById("usuario").value = author;
-      document.getElementById("imagen").value = urlCoverImage;
+      document.getElementById("cover-image").value = urlCoverImage;
       document.getElementById("titulo").value = title;
       document.getElementById("etiqueta").value = tags;
       document.getElementById("contenido").value = content;
+      document.getElementById("imagen-avatar").value = avatarAuthor;
     } else {
       alert("Usuario no existente");
     }
@@ -38,39 +39,43 @@ let btnActualizar = document.getElementById("updatePost");
 btnActualizar.addEventListener("click", () => {
   // obtener la data
   let author = document.getElementById("usuario").value
-  let urlCoverImage = document.getElementById("imagen").value
+  let urlCoverImage = document.getElementById("cover-image").value;
   let title = document.getElementById("titulo").value
   let tags = document.getElementById("etiqueta").value
   let content = document.getElementById("contenido").value
+  let avatarImage = document.getElementById("imagen-avatar").value;
   // validar la data
-  if (author === "" || urlCoverImage === "" || title === "" || tags === "" || content === "" ) {
+  if (
+    author === "" ||
+    urlCoverImage === "" ||
+    title === "" ||
+    tags === "" ||
+    content === "" ||
+    avatarImage ===  "" ) {
     alert("Campos vacios");
   } else {
     // formar el nuevo koder
     let postUpdated = {
-        title: title ,
-        content: content,
-        tags: tags,
-        urlCoverImage:urlCoverImage,
-        author: author,
-        createdDate: "17/06/2022",
-        mintoread: parseInt(Math.random() * 1000) ,
-        reactions: parseInt(Math.random() * 1000) ,
-        comments: parseInt(Math.random() * 1000) ,
-        reference: "./must-blog-post.html",
-        avatarAuthor: "url",
-    
-}
+      title: title,
+      content: content,
+      tags: tags,
+      urlCoverImage: urlCoverImage,
+      author: author,
+      createdDate: "17/06/2022",
+      mintoread: parseInt(Math.random() * 1000),
+      reactions: parseInt(Math.random() * 1000),
+      comments: parseInt(Math.random() * 1000),
+      reference: "./must-blog-post.html",
+      avatarAuthor: avatarImage,
+    };
     console.log(postUpdated);
-    fetch(urlUpd,
-      {
-        method: "PATCH",
-        body: JSON.stringify(postUpdated),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    )
+    fetch(urlUpd, {
+      method: "PATCH",
+      body: JSON.stringify(postUpdated),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
       .then((response) => {
         return response.json();
       })
@@ -80,7 +85,6 @@ btnActualizar.addEventListener("click", () => {
       .catch((err) => {
         console.log(error);
       });
-    
   }
 });
 /**
