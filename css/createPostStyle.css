@@ -23,7 +23,7 @@
 
 #close{
     border: none;
-    font-size: 18px;
+    font-size: 18px;   
     margin-right: 8px;
 }
 
@@ -86,7 +86,31 @@ input::placeholder {
     font-size: 500px;
 }
 
+
+/* .padding-right{
+    padding-right: 0px;
+} */
+
+ #updatePost {
+    background-color:#3b49df ;
+    color: #ffffff;
+  }
+
+  #updatePost:hover{
+    background-color: rgb(47 58 178);  
+}
+
+ #deletePost {
+    background-color:#f30a0a ;
+    color: #ffffff;
+  }
+
+  #deletePost:hover{
+    background-color: #8b0404;  
+}
   
+
+
 
 
 
