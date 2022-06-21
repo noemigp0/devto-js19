@@ -53,6 +53,9 @@ btnEnviar.addEventListener("click", () => {
       .then((finalResponse) => {
         console.log(finalResponse);
         alertMessage(`Post ${finalResponse.name} creado con exito`, "success")
+        setTimeout(() => {
+          window.location.pathname = '/index.html'
+        }, 2000);
       })
       .catch((err) => {
         console.log(error);
