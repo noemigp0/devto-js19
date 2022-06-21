@@ -115,6 +115,11 @@ body{
     margin-bottom: 7px;
 }
 
+#post-card-author .card:nth-of-type(1)
+{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
 .CardHead{
     width: 95%;
     height: 35px;

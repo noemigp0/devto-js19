@@ -1,5 +1,5 @@
 // Create Koder
-console.log("SU codigo para crear un koder aquí");
+// console.log("SU codigo para crear un koder aquí");
 let btnEnviar = document.getElementById("sendPost");
 btnEnviar.addEventListener("click", () => {
   // obtener la data
@@ -9,7 +9,8 @@ btnEnviar.addEventListener("click", () => {
   let etiqueta = document.getElementById("etiqueta").value;
   let contenido = document.getElementById("contenido").value;
   let imagenAvatar = document.getElementById("imagen-avatar").value;
-  console.log(usuario, imagen, titulo, etiqueta, contenido, imagenAvatar);
+  let categoria = document.getElementById("categoria").value;
+  // console.log(usuario, imagen, titulo, etiqueta, contenido, imagenAvatar);
   // validar la data
   if (
     usuario === "" ||
@@ -17,11 +18,12 @@ btnEnviar.addEventListener("click", () => {
     titulo === "" ||
     etiqueta === "" ||
     contenido === "" ||
-    imagenAvatar === ""
+    imagenAvatar === ""||
+    categoria ===""
   ) {
     // alert("Campos vacios");
 
-    alert("Whoops, salió mal: ningún campo debe estar vacío", "danger");
+    alertMessage("Whoops, salió mal: ningún campo debe estar vacío", "danger");
   } else {
     // formar el nuevo koder
     let newPost = {
@@ -34,10 +36,10 @@ btnEnviar.addEventListener("click", () => {
       mintoread: parseInt(Math.random() * 1000),
       reactions: parseInt(Math.random() * 1000),
       comments: parseInt(Math.random() * 1000),
-      reference: "link",
-      avatarAuthor: "https://i.pravatar.cc/150?img=" + parseInt(Math.random()),
+      category: categoria,
+      avatarAuthor: imagenAvatar,
     };
-    console.log(newPost);
+    // console.log(newPost);
     fetch("https://koder19g-ngp-default-rtdb.firebaseio.com/posts/.json", {
       method: "POST",
       body: JSON.stringify(newPost),
@@ -49,11 +51,14 @@ btnEnviar.addEventListener("click", () => {
         return response.json();
       })
       .then((finalResponse) => {
-        console.log(finalResponse);
-        alert(`Post ${finalResponse.name} creado con exito`, "success")
+        // console.log(finalResponse);
+        alertMessage(`Post ${finalResponse.name} creado con exito`, "success")
+        setTimeout(() => {
+          window.location.pathname = '/index.html'
+        }, 2000);
       })
       .catch((err) => {
-        console.log(error);
+        // console.log(error);
       });
   }
 });
