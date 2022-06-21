@@ -37,7 +37,7 @@ btnEnviar.addEventListener("click", () => {
       reactions: parseInt(Math.random() * 1000),
       comments: parseInt(Math.random() * 1000),
       category: categoria,
-      avatarAuthor: "https://i.pravatar.cc/150?img=" + parseInt(Math.random()),
+      avatarAuthor: imagenAvatar,
     };
     console.log(newPost);
     fetch("https://koder19g-ngp-default-rtdb.firebaseio.com/posts/.json", {

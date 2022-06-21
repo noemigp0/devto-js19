@@ -86,7 +86,7 @@ btnActualizar.addEventListener("click", () => {
       })
       .then((finalResponse) => {
 
-        alert(`Se actualizo exitosamente el post`, "success")
+        alertMessage(`Se actualizo exitosamente el post`, "warning")
         console.log(finalResponse);
       })
       .catch((err) => {
