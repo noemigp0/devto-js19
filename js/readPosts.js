@@ -151,10 +151,23 @@ const listPosts = (objPost) => {
     console.log(postElements)
 
     let tags = postElements.tags.split(",")
-   console.log(paintTags(tags))
+    console.log(paintTags(tags))
     
+    let postCardTemplateImage = ""
+    if( i == 0 ){
+
+      postCardTemplateImage = `
+        <div>
+          <img class="card-img-top" src="${postElements.urlCoverImage}" alt="Side Project Sunday! What do you have going on?" style="background-color: rgb(221, 221, 221);">  
+        </div>
+        `
+    }
+
     postCardTemplate += ` 
     <br>   
+
+    ${i == 0 ? postCardTemplateImage: ''}
+
     <div class="card">
 
       <div class="CardHead">
