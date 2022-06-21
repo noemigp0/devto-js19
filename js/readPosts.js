@@ -106,18 +106,18 @@ const createPosts = (postArray) => {
 //createPosts(post);//solo usar para insertar blog desde el js
 
 //funsion para pintar los tags
-const paintTags = (tagsArray) => {
-  console.log(tagsArray);
-  let tagsTemplate = '';
-  tagsArray.forEach(element => {
-    tagsTemplate += `
-       <a class="LinksHashtags FGray" href="#"> #${element}</a>
-      `;
-  });
+// const paintTags = (tagsArray) => {
+//   console.log(tagsArray);
+//   let tagsTemplate = '';
+//   tagsArray.forEach(element => {
+//     tagsTemplate += `
+//        <a class="LinksHashtags FGray" href="#"> #${element}</a>
+//       `;
+//   });
 
-  return tagsTemplate
+//   return tagsTemplate
 
-}
+// }
 
 const listPosts = (objPost) => {
 

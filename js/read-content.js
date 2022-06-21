@@ -34,12 +34,12 @@ console.log("hola");
        document.getElementById("avatar-image-sb").innerHTML = templateCI;
        document.getElementById("authorPostSB").innerHTML = author;
        document.getElementById("more-from").innerHTML = author;
-
-    
-    
+       console.log(tags);
+       templateCI = `${paintTags(tags.split(","))}`;      
+       document.getElementById("Hashtags").innerHTML = templateCI;    
    
      } else {
-       alert("Usuario no existente");
+      alertMessage("Usuario no existente");
      }
    })
    .catch((err) => {

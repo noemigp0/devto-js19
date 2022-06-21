@@ -27,8 +27,9 @@ fetch(urlUpd)
       document.getElementById("etiqueta").value = tags;
       document.getElementById("contenido").value = content;
       document.getElementById("imagen-avatar").value = avatarAuthor;
+      //document.getElementById("categoria").value = avatarAuthor;
     } else {
-      alert("Usuario no existente");
+      alertMessage("Usuario no existente");
     }
   })
   .catch((err) => {
@@ -44,6 +45,7 @@ btnActualizar.addEventListener("click", () => {
   let tags = document.getElementById("etiqueta").value
   let content = document.getElementById("contenido").value
   let avatarImage = document.getElementById("imagen-avatar").value;
+  let category = document.getElementById("categoria").value;
   // validar la data
   if (
     author === "" ||
@@ -51,10 +53,13 @@ btnActualizar.addEventListener("click", () => {
     title === "" ||
     tags === "" ||
     content === "" ||
-    avatarImage ===  "" ) {
-    alert("Campos vacios");
+    avatarImage ===  "" ||
+    category === "") {
+      alertMessage("Campos vacios");
   } else {
     // formar el nuevo koder
+
+
     let postUpdated = {
       title: title,
       content: content,
@@ -65,7 +70,7 @@ btnActualizar.addEventListener("click", () => {
       mintoread: parseInt(Math.random() * 1000),
       reactions: parseInt(Math.random() * 1000),
       comments: parseInt(Math.random() * 1000),
-      reference: "./must-blog-post.html",
+      category: category === "seleccione" ? "latest" : category,
       avatarAuthor: avatarImage,
     };
     console.log(postUpdated);
@@ -81,7 +86,7 @@ btnActualizar.addEventListener("click", () => {
       })
       .then((finalResponse) => {
 
-        alert(`Se actualizo exitosamente el post`, "success")
+        alertMessage(`Se actualizo exitosamente el post`, "warning")
         console.log(finalResponse);
       })
       .catch((err) => {

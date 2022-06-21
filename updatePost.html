@@ -53,6 +53,15 @@
                             <input id="imagen-avatar" type="text" class="form-control" id="imagen-avatar"
                                 placeholder="Inserta url de imagen de avatar...">
                         </div>
+                        <div class="mb-2">
+                            <label for="imagen" class="form-label FBold">Categoría</label>
+                            <select class="form-select" id="categoria" aria-label="Default select example">
+                                <option value="seleccione" selected>Seleccione categoría</option>
+                                <option value="relevant">Relevant</option>
+                                <option value="latest">Latest</option>
+                                <option value="Top">Top</option>
+                              </select>
+                        </div>
 
                         <div class="mb-2">
                             <label for="etiqueta" class="form-label FBold">Etiquetas</label>
@@ -69,6 +78,7 @@
                             <button type="button" class="btn btn-primary" id="updatePost">Actualizar</button>
                             &nbsp;
                             <button id="deletePost" class="btn FGray" type="button">Eliminar</button>
+                            &nbsp;
                             <button id="close" class="btn FGray " type="button"><svg width="24" height="24">
                                     <path
                                         d="m12 1 9.5 5.5v11L12 23l-9.5-5.5v-11L12 1zm0 2.311L4.5 7.653v8.694l7.5 4.342 7.5-4.342V7.653L12 3.311zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z">

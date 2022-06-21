@@ -108,6 +108,13 @@ input::placeholder {
   #deletePost:hover{
     background-color: #8b0404;  
 }
+
+ #categoria {
+    font-size: 15px;
+    font-style: italic;
+    font-family: Consolas;
+    color: hwb(0 40% 58%);
+ }
   
 
 
