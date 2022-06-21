@@ -9,6 +9,7 @@ btnEnviar.addEventListener("click", () => {
   let etiqueta = document.getElementById("etiqueta").value;
   let contenido = document.getElementById("contenido").value;
   let imagenAvatar = document.getElementById("imagen-avatar").value;
+  let categoria = document.getElementById("categoria").value;
   console.log(usuario, imagen, titulo, etiqueta, contenido, imagenAvatar);
   // validar la data
   if (
@@ -17,11 +18,12 @@ btnEnviar.addEventListener("click", () => {
     titulo === "" ||
     etiqueta === "" ||
     contenido === "" ||
-    imagenAvatar === ""
+    imagenAvatar === ""||
+    categoria ===""
   ) {
     // alert("Campos vacios");
 
-    alert("Whoops, salió mal: ningún campo debe estar vacío", "danger");
+    alertMessage("Whoops, salió mal: ningún campo debe estar vacío", "danger");
   } else {
     // formar el nuevo koder
     let newPost = {
@@ -34,7 +36,7 @@ btnEnviar.addEventListener("click", () => {
       mintoread: parseInt(Math.random() * 1000),
       reactions: parseInt(Math.random() * 1000),
       comments: parseInt(Math.random() * 1000),
-      reference: "link",
+      category: categoria,
       avatarAuthor: "https://i.pravatar.cc/150?img=" + parseInt(Math.random()),
     };
     console.log(newPost);
@@ -50,7 +52,7 @@ btnEnviar.addEventListener("click", () => {
       })
       .then((finalResponse) => {
         console.log(finalResponse);
-        alert(`Post ${finalResponse.name} creado con exito`, "success")
+        alertMessage(`Post ${finalResponse.name} creado con exito`, "success")
       })
       .catch((err) => {
         console.log(error);
