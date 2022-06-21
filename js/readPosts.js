@@ -163,9 +163,7 @@ const listPosts = (objPost) => {
         `
     }
 
-    postCardTemplate += ` 
-    <br>   
-
+    postCardTemplate += `
     ${i == 0 ? postCardTemplateImage: ''}
 
     <div class="card">
