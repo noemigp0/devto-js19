@@ -35,7 +35,7 @@ btnEnviar.addEventListener("click", () => {
       reactions: parseInt(Math.random() * 1000),
       comments: parseInt(Math.random() * 1000),
       reference: "link",
-      avatarAuthor: "https://i.pravatar.cc/150?img=" + parserInt(Math.random()),
+      avatarAuthor: "https://i.pravatar.cc/150?img=" + parseInt(Math.random()),
     };
     console.log(newPost);
     fetch("https://koder19g-ngp-default-rtdb.firebaseio.com/posts/.json", {
@@ -50,6 +50,7 @@ btnEnviar.addEventListener("click", () => {
       })
       .then((finalResponse) => {
         console.log(finalResponse);
+        alert(`Post ${finalResponse.name} creado con exito`, "success")
       })
       .catch((err) => {
         console.log(error);
