@@ -1,4 +1,4 @@
-console.log(idPost);
+// console.log(idPost);
 fetch(urlUpd)
   .then((response) => {
     // comprobamos que el estatus de la respuesta es falso
@@ -13,7 +13,7 @@ fetch(urlUpd)
     }
   })
   .then((response) => {
-    console.log(response);
+    // console.log(response);
     let template = "";
     //let { author, age, biography, bootcamp } = response;
     // pintar esa informacion en el formulario
@@ -33,7 +33,7 @@ fetch(urlUpd)
     }
   })
   .catch((err) => {
-    console.log(err);
+    // console.log(err);
   });
 
 let btnActualizar = document.getElementById("updatePost");
@@ -73,7 +73,7 @@ btnActualizar.addEventListener("click", () => {
       category: category === "seleccione" ? "latest" : category,
       avatarAuthor: avatarImage,
     };
-    console.log(postUpdated);
+    // console.log(postUpdated);
     fetch(urlUpd, {
       method: "PATCH",
       body: JSON.stringify(postUpdated),
@@ -87,10 +87,12 @@ btnActualizar.addEventListener("click", () => {
       .then((finalResponse) => {
 
         alertMessage(`Se actualizo exitosamente el post`, "warning")
-        console.log(finalResponse);
+        setTimeout(() => {
+          window.location.pathname = '/index.html'
+        }, 2000);
       })
       .catch((err) => {
-        console.log(error);
+        // console.log(error);
       });
   }
 });
@@ -118,10 +120,10 @@ btnEliminar.addEventListener("click", () => {
       }
     })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       window.location.pathname = "/index.html";
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
     });
 });
