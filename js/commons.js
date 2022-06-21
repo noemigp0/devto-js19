@@ -6,7 +6,7 @@ let urlUpd = `https://koder19g-ngp-default-rtdb.firebaseio.com/posts/${idPost}.j
 
 //Esta funsion es para los alerts, el cdigo es de bootstrap
   const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
-const alert = (message, type) => {
+  const alert = (message, type) => {
   const wrapper = document.createElement("div");
   wrapper.innerHTML = [
     `<div class="alert alert-${type} alert-dismissible" role="alert">`,
