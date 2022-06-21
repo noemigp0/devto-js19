@@ -1,5 +1,5 @@
-console.log(idPost);
-console.log("hola");
+// console.log(idPost);
+// console.log("hola");
  fetch(urlUpd)
    .then((response) => {
      // comprobamos que el estatus de la respuesta es falso
@@ -14,12 +14,12 @@ console.log("hola");
      }
    })
    .then((response) => {
-     console.log(response);
+    //  console.log(response);
      let templateCI = "";     
      //let { author, age, biography, bootcamp } = response;
      // pintar esa informacion en el formulario
      if (response) {
-         console.log(response)
+        //  console.log(response)
        let { title, author, content, tags, urlCoverImage, avatarAuthor } = response;
        // pintar esa informacion en el formulario   
   
@@ -34,7 +34,7 @@ console.log("hola");
        document.getElementById("avatar-image-sb").innerHTML = templateCI;
        document.getElementById("authorPostSB").innerHTML = author;
        document.getElementById("more-from").innerHTML = author;
-       console.log(tags);
+      //  console.log(tags);
        templateCI = `${paintTags(tags.split(","))}`;      
        document.getElementById("Hashtags").innerHTML = templateCI;    
    
@@ -43,7 +43,7 @@ console.log("hola");
      }
    })
    .catch((err) => {
-     console.log(err);
+    //  console.log(err);
    });
 
 

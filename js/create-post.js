@@ -1,5 +1,5 @@
 // Create Koder
-console.log("SU codigo para crear un koder aquí");
+// console.log("SU codigo para crear un koder aquí");
 let btnEnviar = document.getElementById("sendPost");
 btnEnviar.addEventListener("click", () => {
   // obtener la data
@@ -10,7 +10,7 @@ btnEnviar.addEventListener("click", () => {
   let contenido = document.getElementById("contenido").value;
   let imagenAvatar = document.getElementById("imagen-avatar").value;
   let categoria = document.getElementById("categoria").value;
-  console.log(usuario, imagen, titulo, etiqueta, contenido, imagenAvatar);
+  // console.log(usuario, imagen, titulo, etiqueta, contenido, imagenAvatar);
   // validar la data
   if (
     usuario === "" ||
@@ -39,7 +39,7 @@ btnEnviar.addEventListener("click", () => {
       category: categoria,
       avatarAuthor: imagenAvatar,
     };
-    console.log(newPost);
+    // console.log(newPost);
     fetch("https://koder19g-ngp-default-rtdb.firebaseio.com/posts/.json", {
       method: "POST",
       body: JSON.stringify(newPost),
@@ -51,14 +51,14 @@ btnEnviar.addEventListener("click", () => {
         return response.json();
       })
       .then((finalResponse) => {
-        console.log(finalResponse);
+        // console.log(finalResponse);
         alertMessage(`Post ${finalResponse.name} creado con exito`, "success")
         setTimeout(() => {
           window.location.pathname = '/index.html'
         }, 2000);
       })
       .catch((err) => {
-        console.log(error);
+        // console.log(error);
       });
   }
 });

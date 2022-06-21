@@ -94,11 +94,11 @@ const createPosts = (postArray) => {
       })
       .then((finalResponse) => {
         if (finalResponse) {
-          console.log(finalResponse);
+          // console.log(finalResponse);
         }
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   });
 };
@@ -121,7 +121,7 @@ const createPosts = (postArray) => {
 
 const listPosts = (objPost) => {
 
-  console.log( "aquí " + typeof objPost )
+  // console.log( "aquí " + typeof objPost )
   let postCardTemplate = "";
   let i = 0;
   let arrList = []
@@ -137,10 +137,10 @@ const listPosts = (objPost) => {
   arrList = Object.entries( objPost )
   
   arrReverse = arrList.reverse()
-  console.log( "arrList " + arrList)
-  console.log( "arrReverse " + arrReverse)
+  // console.log( "arrList " + arrList)
+  // console.log( "arrReverse " + arrReverse)
 
-  console.log("ele " +  arrList[0], arrList[0][1].author )
+  // console.log("ele " +  arrList[0], arrList[0][1].author )
 
   //for (post in objPost) {
 
@@ -148,10 +148,10 @@ const listPosts = (objPost) => {
   for ( i = 0; i < arrList.length; i++ ){
     let postElements = arrList[i][1] // objPost[post];  
     
-    console.log(postElements)
+    // console.log(postElements)
 
     let tags = postElements.tags.split(",")
-    console.log(paintTags(tags))
+    // console.log(paintTags(tags))
     
     let postCardTemplateImage = ""
     if( i == 0 ){
@@ -216,6 +216,6 @@ fetch("https://koder19g-ngp-default-rtdb.firebaseio.com/posts/.json")
     }
   })
   .then((response) => {
-    console.log(response);
+    // console.log(response);
     listPosts(response);
   });

@@ -22,7 +22,7 @@ const alertMessage = (message, type) => {
 
 
 const paintTags = (tagsArray) => {
-  console.log(tagsArray);
+  // console.log(tagsArray);
   let tagsTemplate = '';
   tagsArray.forEach(element => {
     tagsTemplate += `
