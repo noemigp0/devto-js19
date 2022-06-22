@@ -119,13 +119,13 @@ const createPosts = (postArray) => {
 
 // }
 
-const listPosts = (objPost) => {
+const listPosts = (objPost, strType ) => {
 
   // console.log( "aquí " + typeof objPost )
   let postCardTemplate = "";
   let i = 0;
   let arrList = []
-  let flagFirstTime = 0
+  let flagFirstTime = 0;
 
   /*
   for (post in objPost) {
@@ -154,68 +154,98 @@ const listPosts = (objPost) => {
     // console.log(paintTags(tags))
     
     let postCardTemplateImage = ""
-    if( i == 0 ){
+    if( strType === postElements.category ){
 
-      postCardTemplateImage = `
-        <div>
-          <img class="card-img-top" src="${postElements.urlCoverImage}" alt="Side Project Sunday! What do you have going on?" style="background-color: rgb(221, 221, 221);">  
+      
+      console.log( "flagFirstTime", strType, flagFirstTime )
+
+      if( flagFirstTime === 0 ){
+
+        postCardTemplateImage = `
+          <div>
+            <img class="card-img-top" src="${postElements.urlCoverImage}" alt="Side Project Sunday! What do you have going on?" style="background-color: rgb(221, 221, 221);">  
+          </div>
+          `
+          
+      }
+
+      postCardTemplate += `
+      ${ flagFirstTime == 0 ? postCardTemplateImage: ''}
+
+      <div class="card">
+
+        <div class="CardHead">
+          <div><img class="ImgTmb" src="${postElements.avatarAuthor === 'url'?'https://i.pravatar.cc/150?img='+ parseInt(Math.random()*10): postElements.avatarAuthor }" /></div>
+            <div class="CardTitleHead">
+              <div class="Name">${postElements.author}</div>
+              <div class="FS12 FGray">${postElements.createdDate}</div>
+          </div>
+        </div> 
+
+        <div class="CardBody">
+          <div class="ArticleName"><a class="LinkArticle" href="./post.html?postKey=${arrList[i][0]}">
+            ${postElements.title}
+          </a></div>        
+        <div class="Hashtags">
+          ${paintTags(tags)}
         </div>
-        `
+      </div>
+      
+      <div class="CardFoot">
+        <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Heart.png" />${postElements.reactions + parseInt(Math.random()*1000)}
+          reactions</button>
+        <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Gb.png" />${postElements.comments + parseInt(Math.random()*1000) }
+          comments</button>
+        <div class="Spacer"></div>
+        <div class="FS12 FGray p-1">${postElements.mintoread + parseInt(Math.random()*100)} min read</div>
+        <button type="button" class="btn btn-sm Save">Save</button>
+      </div>
+
+      </div>
+
+      `;
+
+      flagFirstTime = 1
     }
-
-    postCardTemplate += `
-    ${i == 0 ? postCardTemplateImage: ''}
-
-    <div class="card">
-
-      <div class="CardHead">
-        <div><img class="ImgTmb" src="${postElements.avatarAuthor === 'url'?'https://i.pravatar.cc/150?img='+ parseInt(Math.random()*10): postElements.avatarAuthor }" /></div>
-          <div class="CardTitleHead">
-            <div class="Name">${postElements.author}</div>
-            <div class="FS12 FGray">${postElements.createdDate}</div>
-        </div>
-      </div> 
-
-      <div class="CardBody">
-        <div class="ArticleName"><a class="LinkArticle" href="./post.html?postKey=${arrList[i][0]}">
-          ${postElements.title}
-        </a></div>        
-       <div class="Hashtags">
-         ${paintTags(tags)}
-       </div>
-    </div>
-    
-     <div class="CardFoot">
-       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Heart.png" />${postElements.reactions + parseInt(Math.random()*1000)}
-         reactions</button>
-       <button type="button" class="btn btn-sm LinkReactions"><img class="Reactions" src="img/Gb.png" />${postElements.comments + parseInt(Math.random()*1000) }
-         comments</button>
-       <div class="Spacer"></div>
-       <div class="FS12 FGray p-1">${postElements.mintoread + parseInt(Math.random()*100)} min read</div>
-       <button type="button" class="btn btn-sm Save">Save</button>
-     </div>
-
-    </div>
-
-    `;
   }
-
   document.querySelector("#post-card-author").innerHTML = postCardTemplate;
 };
 
 //
 
-fetch("https://koder19g-ngp-default-rtdb.firebaseio.com/posts/.json")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(
-        `Algo salio mal, status: ${response.status} ${response.statusText} type: ${response.type}` // si si, lanzamos un error con un mensaje
-      );
-    } else {
-      return response.json(); // sino, retornamos la respuesta al siguiente then
-    }
+const loadData = ( strType ) => {
+  fetch("https://koder19g-ngp-default-rtdb.firebaseio.com/posts/.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(
+          `Algo salio mal, status: ${response.status} ${response.statusText} type: ${response.type}` // si si, lanzamos un error con un mensaje
+        );
+      } else {
+        return response.json(); // sino, retornamos la respuesta al siguiente then
+      }
+    })
+    .then((response) => {
+      // console.log(response);
+      listPosts(response, strType );
+    });
+  }
+
+
+  let btn_relevant = document.getElementById("btn_relevant");
+  btn_relevant.addEventListener("click", () => {
+    loadData( "relevant" )
   })
-  .then((response) => {
-    // console.log(response);
-    listPosts(response);
-  });
+
+  let btn_lates = document.getElementById("btn_lates");
+  btn_lates.addEventListener("click", () => {
+    loadData( "latest" )
+  })
+
+  let btn_top = document.getElementById("btn_top");
+  btn_top.addEventListener("click", () => {
+    loadData( "Top" )
+  })
+
+
+
+  loadData( "relevant" )
