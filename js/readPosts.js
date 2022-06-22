@@ -154,7 +154,7 @@ const listPosts = (objPost, strType ) => {
     // console.log(paintTags(tags))
     
     let postCardTemplateImage = ""
-    if( strType === postElements.category ){
+    if( strType === postElements.category || strType === ''){
 
       
       console.log( "flagFirstTime", strType, flagFirstTime )
@@ -248,4 +248,4 @@ const loadData = ( strType ) => {
 
 
 
-  loadData( "relevant" )
+  loadData( '' )
