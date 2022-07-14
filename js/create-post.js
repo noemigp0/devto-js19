@@ -1,5 +1,4 @@
-// Create Koder
-// console.log("SU codigo para crear un koder aquí");
+
 let btnEnviar = document.getElementById("sendPost");
 btnEnviar.addEventListener("click", () => {
   // obtener la data
@@ -10,8 +9,7 @@ btnEnviar.addEventListener("click", () => {
   let contenido = document.getElementById("contenido").value;
   let imagenAvatar = document.getElementById("imagen-avatar").value;
   let categoria = document.getElementById("categoria").value;
-  // console.log(usuario, imagen, titulo, etiqueta, contenido, imagenAvatar);
-  // validar la data
+
   if (
     usuario === "" ||
     imagen === "" ||
@@ -51,7 +49,7 @@ btnEnviar.addEventListener("click", () => {
         return response.json();
       })
       .then((finalResponse) => {
-        // console.log(finalResponse);
+       
         alertMessage(`Post ${finalResponse.name} creado con exito`, "success")
         setTimeout(() => {
           window.location.pathname = '/index.html'
@@ -62,31 +60,3 @@ btnEnviar.addEventListener("click", () => {
       });
   }
 });
-// hacer el envio
-/*
-    const httpXHR = new XMLHttpRequest()
-    httpXHR.onload = (response) => {
-      if(response.target.status >= 200 && response.target.status <= 399) {
-        let responseFirebase = JSON.parse(response.target.response)
-        console.log(responseFirebase)
-        alert(`Koder registrado exitosamente con el id ${responseFirebase.name} `)
-      }
-    }
-    httpXHR.open('POST', 
-    'https://koders19gjs-default-rtdb.firebaseio.com/koders/.json', true)
-    console.log(httpXHR)
-    // enviar 
-    // texto plano NOtacion de JSON
-    // console.log(JSON.stringify(newKoder))
-    httpXHR.send( JSON.stringify(newKoder) )
-  }
-} )
-*/
-/*
-let newKoder = {
-    age: "32",
-    biography: "Lorem ipsum",
-    bootcamp: "Js",
-    name: "Francisco"
-}
-*/

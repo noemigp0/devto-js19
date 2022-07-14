@@ -103,52 +103,23 @@ const createPosts = (postArray) => {
   });
 };
 
-//createPosts(post);//solo usar para insertar blog desde el js
-
-//funsion para pintar los tags
-// const paintTags = (tagsArray) => {
-//   console.log(tagsArray);
-//   let tagsTemplate = '';
-//   tagsArray.forEach(element => {
-//     tagsTemplate += `
-//        <a class="LinksHashtags FGray" href="#"> #${element}</a>
-//       `;
-//   });
-
-//   return tagsTemplate
-
-// }
 
 const listPosts = (objPost, strType ) => {
 
-  // console.log( "aquí " + typeof objPost )
+ 
   let postCardTemplate = "";
   let i = 0;
   let arrList = []
   let flagFirstTime = 0;
 
-  /*
-  for (post in objPost) {
-
-    console.log( )
-
-  }*/
 
   arrList = Object.entries( objPost )
   
-  arrReverse = arrList.reverse()
-  // console.log( "arrList " + arrList)
-  // console.log( "arrReverse " + arrReverse)
-
-  // console.log("ele " +  arrList[0], arrList[0][1].author )
-
-  //for (post in objPost) {
+  arrReverse = arrList.reverse() 
 
   
   for ( i = 0; i < arrList.length; i++ ){
-    let postElements = arrList[i][1] // objPost[post];  
-    
-    // console.log(postElements)
+    let postElements = arrList[i][1] 
 
     let tags = postElements.tags.split(",")
     // console.log(paintTags(tags))
@@ -218,14 +189,14 @@ const loadData = ( strType ) => {
     .then((response) => {
       if (!response.ok) {
         throw new Error(
-          `Algo salio mal, status: ${response.status} ${response.statusText} type: ${response.type}` // si si, lanzamos un error con un mensaje
+          `Algo salio mal, status: ${response.status} ${response.statusText} type: ${response.type}` 
         );
       } else {
-        return response.json(); // sino, retornamos la respuesta al siguiente then
+        return response.json(); 
       }
     })
     .then((response) => {
-      // console.log(response);
+      
       listPosts(response, strType );
     });
   }
